@@ -2,7 +2,7 @@
 require_once __DIR__.'/inc/Task.php';
 require_once __DIR__.'/inc/User.php';
 if (!isset($_SESSION['user_id'])) {
-    header('Location: mobile_login.php');
+    header('Location: login.php');
     exit();
 }
 $taskModel = new Task();
