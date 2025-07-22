@@ -8,6 +8,6 @@ This directory contains a simple object-oriented rewrite of the Task Tracker exa
 2. Adjust credentials in `inc/Database.php` if necessary.
 3. Place the folder on a PHP-enabled server and open `login.php` to log in via OTP.
    Admin users are redirected to the dashboard while normal users see their task list.
-4. Once logged in as admin you can manage users from `users.php`, categories from `categories.php` and tasks from `tasks.php`.
+4. Once logged in as admin you can manage users from `users.php` (paginated list) and add/edit via `user_form.php`, categories from `categories.php` and tasks from `tasks.php`.
 
 The MSG91 OTP integration is represented as a placeholder in `inc/Otp.php`.
