@@ -31,6 +31,20 @@ class User {
         return $stmt->fetchAll();
     }
 
+    public function paginate($page = 1, $perPage = 10) {
+        $offset = ($page - 1) * $perPage;
+        $stmt = $this->db->prepare('SELECT * FROM users ORDER BY id DESC LIMIT ? OFFSET ?');
+        $stmt->bindValue(1, (int)$perPage, PDO::PARAM_INT);
+        $stmt->bindValue(2, (int)$offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function countAll() {
+        $stmt = $this->db->query('SELECT COUNT(*) FROM users');
+        return (int)$stmt->fetchColumn();
+    }
+
     public function update($id, $name, $mobile, $company, $isAdmin, $status) {
         $stmt = $this->db->prepare('UPDATE users SET name=?, mobile=?, company=?, is_admin_login=?, status=? WHERE id=?');
         return $stmt->execute([$name, $mobile, $company, $isAdmin, $status, $id]);
